@@ -9,7 +9,8 @@
     public static class Program
     {
         private const string UnaryMaths = @"
-$^:Unary Operators
+(?!):Unary Operators
+$^:111+111*111^111-111^(111*111)
 
 (1+)\^(1+)1:$1*$1^$2
 (1+)\*(1+)1:$1+$1*$2
@@ -26,7 +27,7 @@ $^:Unary Operators
         public static void Main(string[] args)
         {
             var code = Parse(UnaryMaths);
-            foreach (var line in code.Run("(1+1)^(1+1)"))
+            foreach (var line in code.Run(""))
             {
                 Console.WriteLine(line);
                 Console.WriteLine();
